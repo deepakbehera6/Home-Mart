@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeMart - Furniture & Decor | Free Web Development Internship Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="toast" class="toast" role="alert"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🏠 HomeMart</div>
+            <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#living-room">Living Room</a></li>
+                <li><a href="#bedroom">Bedroom</a></li>
+                <li><a href="#dining">Dining</a></li>
+                <li><a href="#office">Office</a></li>
+                <li><a href="#cart">Cart <span class="cart-count">0</span></a></li>
+                <li><a href="#account" id="nav-account-link">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section id="home">
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge"><i class="fas fa-certificate"></i> Artisanal Woodworking</span>
+                    <h1>Warmth &amp; Elegance for Mindful Living</h1>
+                    <p>Heirloom-grade furniture crafted from responsibly sourced oak, walnut, and natural textures designed to elevate your everyday sanctuary.</p>
+                    <div class="hero-actions">
+                        <a href="#living-room" class="btn btn-gold">Shop Living Room</a>
+                        <a href="#about" class="btn btn-outline-white">Our Heritage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="perks-bar">
+            <div class="container perks-grid">
+                <div class="perk-item">
+                    <i class="fas fa-truck-fast"></i>
+                    <div>
+                        <h4>Free White-Glove Shipping</h4>
+                        <p>Complimentary setup on orders over $500</p>
+                    </div>
+                </div>
+                <div class="perk-item">
+                    <i class="fas fa-shield-halved"></i>
+                    <div>
+                        <h4>10-Year Craft Guarantee</h4>
+                        <p>Constructed with kiln-dried hardwoods</p>
+                    </div>
+                </div>
+                <div class="perk-item">
+                    <i class="fas fa-leaf"></i>
+                    <div>
+                        <h4>Sustainably Harvested</h4>
+                        <p>100% FSC certified materials</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="living-room" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="sub-heading">Sanctuary</span>
+                    <h2 class="section-title">Living Room Collection</h2>
+                </div>
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search living room..." oninput="filterProducts('living-room', this.value, null)">
+                    </div>
+                    <select class="filter-select" onchange="filterProducts('living-room', null, this.value)">
+                        <option value="all">All Materials</option>
+                        <option value="Fabric">Fabric</option>
+                        <option value="Leather">Leather</option>
+                        <option value="Wood">Solid Wood</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="living-room-grid"></div>
+        </div>
+    </section>
+
+    <section id="bedroom" class="section-padding bg-cream">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="sub-heading">Rest &amp; Serenity</span>
+                    <h2 class="section-title">Bedroom Collection</h2>
+                </div>
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search bedroom..." oninput="filterProducts('bedroom', this.value, null)">
+                    </div>
+                    <select class="filter-select" onchange="filterProducts('bedroom', null, this.value)">
+                        <option value="all">All Materials</option>
+                        <option value="Wood">Solid Wood</option>
+                        <option value="Upholstered">Upholstered</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="bedroom-grid"></div>
+        </div>
+    </section>
+
+    <section id="dining" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="sub-heading">Gatherings</span>
+                    <h2 class="section-title">Dining &amp; Kitchen</h2>
+                </div>
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search dining..." oninput="filterProducts('dining', this.value, null)">
+                    </div>
+                    <select class="filter-select" onchange="filterProducts('dining', null, this.value)">
+                        <option value="all">All Materials</option>
+                        <option value="Oak">Oak</option>
+                        <option value="Walnut">Walnut</option>
+                        <option value="Ceramic">Ceramic</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="dining-grid"></div>
+        </div>
+    </section>
+
+    <section id="office" class="section-padding bg-cream">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="sub-heading">Focus &amp; Workspaces</span>
+                    <h2 class="section-title">Office &amp; Decor</h2>
+                </div>
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search office..." oninput="filterProducts('office', this.value, null)">
+                    </div>
+                    <select class="filter-select" onchange="filterProducts('office', null, this.value)">
+                        <option value="all">All Materials</option>
+                        <option value="Engineered Wood">Engineered Wood</option>
+                        <option value="Steel">Steel &amp; Mesh</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="office-grid"></div>
+        </div>
+    </section>
+
+    <section id="cart" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-heading">Selected Items</span>
+                <h2 class="section-title">Your Shopping Cart</h2>
+            </div>
+            <div class="cart-layout">
+                <div class="cart-items-wrapper" id="cart-table-wrapper">
+                </div>
+                <div class="cart-summary-wrapper" id="cart-summary-box">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="checkout" class="section-padding bg-cream">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-heading">Secure Order</span>
+                <h2 class="section-title">Checkout &amp; Shipping</h2>
+            </div>
+            <div class="checkout-layout">
+                <form class="checkout-form" id="checkout-form" onsubmit="handleCheckout(event)">
+                    <h3>1. Shipping Information</h3>
+                    <div class="form-group">
+                        <label>Recipient Name</label>
+                        <input type="text" id="order-name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Street Address</label>
+                        <input type="text" id="order-address" required placeholder="Lane No 2 nere Niko park Bhubaneswar ">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" id="order-city" required placeholder="Bhubaneswar">
+                        </div>
+                        <div class="form-group">
+                            <label>ZIP / Postal Code</label>
+                            <input type="text" id="order-zip" required placeholder="12345">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Delivery Date</label>
+                        <input type="date" id="order-date" required>
+                    </div>
+
+                    <h3 style="margin-top: 25px;">2. Payment Method</h3>
+                    <div class="form-group">
+                        <select id="order-payment" class="filter-select full-width">
+                            <option value="Credit Card">Credit / Debit Card</option>
+                            <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+                            <option value="Direct Bank Transfer">Direct Bank Transfer / UPI</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary full-width" style="margin-top: 15px;">
+                        Place Furniture Order
+                    </button>
+                </form>
+
+                <div class="checkout-summary-card" id="checkout-summary-details">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="account" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-heading">Member Area</span>
+                <h2 class="section-title">User Account &amp; Authentication</h2>
+            </div>
+
+            <div id="auth-forms-container" class="auth-box">
+                <div class="auth-tabs">
+                    <button type="button" id="tab-login" class="tab-btn active" onclick="switchAuthTab('login')">Sign In</button>
+                    <button type="button" id="tab-register" class="tab-btn" onclick="switchAuthTab('register')">Create Account</button>
+                </div>
+
+                <form id="login-form" class="auth-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="login-email" required placeholder="user@homemart.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="login-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">Sign In</button>
+                    <p class="auth-hint">Demo Account: <code>demo@homemart.com</code> / <code>password123</code></p>
+                </form>
+
+                <form id="register-form" class="auth-form hidden" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="reg-name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="reg-email" required placeholder="user@homemart.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password (min 6 characters)</label>
+                        <input type="password" id="reg-password" minlength="6" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-gold full-width">Register</button>
+                </form>
+            </div>
+
+            <div id="account-dashboard" class="dashboard-panel hidden">
+                <div class="dashboard-header">
+                    <div class="user-greeting">
+                        <div class="avatar-badge" id="avatar-initials">U</div>
+                        <div>
+                            <h3>Welcome, <span id="user-display-name">Customer</span></h3>
+                            <p id="user-display-email">customer@domain.com</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="handleLogout()">Sign Out</button>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-head">
+                            <h4><i class="fas fa-heart"></i> Saved Wishlist (<span id="wishlist-badge">0</span>)</h4>
+                        </div>
+                        <div id="wishlist-container" class="dashboard-card-body"></div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-head">
+                            <h4><i class="fas fa-clock-rotate-left"></i> Order History</h4>
+                        </div>
+                        <div id="orders-container" class="dashboard-card-body"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding bg-cream">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80" alt="Woodworking Craftsman">
+                </div>
+                <div class="about-text-content">
+                    <span class="sub-heading">Our Craftsmanship</span>
+                    <h2 class="section-title">Built for Generations of Warmth</h2>
+                    <p>At HomeMart, every silhouette is informed by timeless mid-century balance and Scandinavian restraint. We choose honest materials—solid oak, sustainably harvested teak, and chemical-free linen finishes—that grow richer with age.</p>
+                    <p>By blending traditional mortise-and-tenon woodworking joints with modern ergonomics, our pieces bring a tranquil foundation to bustling contemporary lifestyles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-heading">Get in Touch</span>
+                <h2 class="section-title">Visit Our Studio or Inquire</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card info-card">
+                    <h3>Atelier Showroom</h3>
+                    <p><i class="fas fa-map-pin"></i> CDA Sector 3, Cuttack, Nere Toyota Showroom</p>
+                    <p><i class="fas fa-phone"></i> +91 (500) 555-555</p>
+                    <p><i class="fas fa-envelope"></i> woodcraft@homemart.com</p>
+                    <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</p>
+                </div>
+                <form class="contact-card" onsubmit="event.preventDefault(); showToast('Message dispatched to our studio!'); this.reset();">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" required placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" required placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Inquiry</label>
+                        <textarea rows="4" required placeholder="Tell us about your room or custom furniture specifications..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
